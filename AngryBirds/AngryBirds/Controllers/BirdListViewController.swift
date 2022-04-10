@@ -12,14 +12,18 @@ class BirdListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var flock: [String]!
+    var flock: [Produce] = []
+    var produceService: ProduceService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.flock = ["Oriole", "Bluebird", "Blackbird", "Oriole", "Bluebird", "Blackbird", "Oriole", "Bluebird", "Blackbird", "Oriole", "Bluebird", "Blackbird", "Oriole", "Bluebird", "Blackbird"]
         
+        self.produceService = ProduceService()
+        self.flock = self.produceService.getProduce()
+        
+    
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -36,8 +40,10 @@ extension BirdListViewController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "birdCell") as! BirdCell
             
-            cell.birdNameLabel.text = self.flock[indexPath.row]
-            cell.birdDescriptionLabel.text = "He angry"
+            
+            let currentProduce = self.flock[indexPath.row]
+            cell.birdNameLabel.text = currentProduce.name
+            cell.birdDescriptionLabel.text = currentProduce.description
             
             return cell
         }

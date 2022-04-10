@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0319D6C28039E41002C7C58 /* Produce.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319D6B28039E41002C7C58 /* Produce.swift */; };
+		B0319D6E2803A1E9002C7C58 /* ProduceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319D6D2803A1E9002C7C58 /* ProduceService.swift */; };
 		B03F900427FBA8AC0086AA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F900327FBA8AC0086AA82 /* AppDelegate.swift */; };
 		B03F900627FBA8AC0086AA82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F900527FBA8AC0086AA82 /* SceneDelegate.swift */; };
 		B03F900827FBA8AC0086AA82 /* BirdListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F900727FBA8AC0086AA82 /* BirdListViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B0319D6B28039E41002C7C58 /* Produce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Produce.swift; sourceTree = "<group>"; };
+		B0319D6D2803A1E9002C7C58 /* ProduceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduceService.swift; sourceTree = "<group>"; };
 		B03F900027FBA8AC0086AA82 /* AngryBirds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngryBirds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03F900327FBA8AC0086AA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B03F900527FBA8AC0086AA82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0319D6F2803A2B7002C7C58 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B0319D6D2803A1E9002C7C58 /* ProduceService.swift */,
+				B0319D6B28039E41002C7C58 /* Produce.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B0319D702803A34D002C7C58 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B03F903627FBD69C0086AA82 /* BirdCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B0319D712803A354002C7C58 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B03F900727FBA8AC0086AA82 /* BirdListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B03F8FF727FBA8AC0086AA82 = {
 			isa = PBXGroup;
 			children = (
@@ -105,9 +134,10 @@
 			children = (
 				B03F900327FBA8AC0086AA82 /* AppDelegate.swift */,
 				B03F900527FBA8AC0086AA82 /* SceneDelegate.swift */,
-				B03F900727FBA8AC0086AA82 /* BirdListViewController.swift */,
+				B0319D712803A354002C7C58 /* Controllers */,
+				B0319D702803A34D002C7C58 /* Views */,
+				B0319D6F2803A2B7002C7C58 /* Data */,
 				B03F900927FBA8AC0086AA82 /* Main.storyboard */,
-				B03F903627FBD69C0086AA82 /* BirdCell.swift */,
 				B03F900F27FBA8AD0086AA82 /* Assets.xcassets */,
 				B03F901127FBA8AD0086AA82 /* LaunchScreen.storyboard */,
 				B03F901427FBA8AD0086AA82 /* Info.plist */,
@@ -266,6 +296,8 @@
 			files = (
 				B03F900E27FBA8AC0086AA82 /* AngryBirds.xcdatamodeld in Sources */,
 				B03F900827FBA8AC0086AA82 /* BirdListViewController.swift in Sources */,
+				B0319D6C28039E41002C7C58 /* Produce.swift in Sources */,
+				B0319D6E2803A1E9002C7C58 /* ProduceService.swift in Sources */,
 				B03F903727FBD69C0086AA82 /* BirdCell.swift in Sources */,
 				B03F900427FBA8AC0086AA82 /* AppDelegate.swift in Sources */,
 				B03F900627FBA8AC0086AA82 /* SceneDelegate.swift in Sources */,
