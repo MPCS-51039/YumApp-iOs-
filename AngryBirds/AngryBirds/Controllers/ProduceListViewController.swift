@@ -30,7 +30,7 @@ class ProduceListViewController: UIViewController {
     }
 }
     
-extension BirdListViewController: UITableViewDataSource {
+extension ProduceListViewController: UITableViewDataSource {
         //  MARK: DataSource
     
         public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,7 +38,7 @@ extension BirdListViewController: UITableViewDataSource {
         }
         
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "birdCell") as! BirdCell
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "produceCell") as! ProduceCell
             
             let currentProduce = self.flock[indexPath.row]
             
@@ -50,12 +50,12 @@ extension BirdListViewController: UITableViewDataSource {
         
     }
 
-extension BirdListViewController: UITableViewDelegate {
+extension ProduceListViewController: UITableViewDelegate {
 //    MARK: Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if
-            let cell = self.tableView.cellForRow(at: indexPath) as? BirdCell,
+            let cell = self.tableView.cellForRow(at: indexPath) as? ProduceCell,
             let confirmedProduce = cell.produce 
         {
             confirmedProduce.confirmedEaten = true
