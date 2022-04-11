@@ -12,8 +12,8 @@ class ProduceService {
     func getProduce() -> [Produce] {
         return [
             Produce(named: "Peas", description: "Refrigerate in a perforated plastic bag for 3-5 days. Shell peas immediately before using."),
-            Produce(named: "Zucchini", description: "Store zucchini in a plastic bag in the refrigerator for 4 to 5 days. Do not wash it until you are ready to use."),
-            Produce(named: "Artichoke", description: "slice a dime width off the artichoke stem, sprinkle with water and refrigerate in an airtight plastic bag. It’s best to cook them within five to seven days after purchase. "),
+            Produce(named: "Zucchini", description: "Store in a plastic bag in the refrigerator for 4 to 5 days. Do not wash it until you are ready to use."),
+            Produce(named: "Artichoke", description: "Slice a dime width off the artichoke stem, sprinkle with water and refrigerate in an airtight plastic bag. It’s best to cook them within five to seven days after purchase. "),
             Produce(named: "Cucumber", description: "Refrigerate in plastic bag up to 1 week"),
             Produce(named: "Cauliflower", description: "Refrigerate in plastic bag up to 5 days"),
             Produce(named: "Beet", description: "Store roots in a plastic bag in refrigerator for up to 3 weeks. Wash before cooking"),

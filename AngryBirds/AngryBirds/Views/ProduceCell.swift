@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BirdCell: UITableViewCell {
+class ProduceCell: UITableViewCell {
     
     @IBOutlet weak var birdNameLabel: UILabel!
     @IBOutlet weak var birdDescriptionLabel: UILabel!

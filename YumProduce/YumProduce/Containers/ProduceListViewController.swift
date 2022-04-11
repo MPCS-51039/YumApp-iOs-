@@ -49,7 +49,6 @@ extension ProduceListViewController: UITableViewDelegate {
     //    MARK: Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if
             let cell = self.tableView.cellForRow(at: indexPath) as? ProduceCell,
             let confirmedProduce = cell.produce
         {

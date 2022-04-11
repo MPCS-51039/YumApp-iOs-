@@ -11,7 +11,7 @@
 		B0319D6E2803A1E9002C7C58 /* ProduceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319D6D2803A1E9002C7C58 /* ProduceService.swift */; };
 		B03F900427FBA8AC0086AA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F900327FBA8AC0086AA82 /* AppDelegate.swift */; };
 		B03F900627FBA8AC0086AA82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F900527FBA8AC0086AA82 /* SceneDelegate.swift */; };
-		B03F900827FBA8AC0086AA82 /* BirdListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F900727FBA8AC0086AA82 /* BirdListViewController.swift */; };
+		B03F900827FBA8AC0086AA82 /* ProduceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F900727FBA8AC0086AA82 /* ProduceListViewController.swift */; };
 		B03F900B27FBA8AC0086AA82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03F900927FBA8AC0086AA82 /* Main.storyboard */; };
 		B03F900E27FBA8AC0086AA82 /* AngryBirds.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B03F900C27FBA8AC0086AA82 /* AngryBirds.xcdatamodeld */; };
 		B03F901027FBA8AD0086AA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03F900F27FBA8AD0086AA82 /* Assets.xcassets */; };
@@ -19,7 +19,7 @@
 		B03F901E27FBA8AE0086AA82 /* AngryBirdsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F901D27FBA8AE0086AA82 /* AngryBirdsTests.swift */; };
 		B03F902827FBA8AE0086AA82 /* AngryBirdsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F902727FBA8AE0086AA82 /* AngryBirdsUITests.swift */; };
 		B03F902A27FBA8AE0086AA82 /* AngryBirdsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F902927FBA8AE0086AA82 /* AngryBirdsUITestsLaunchTests.swift */; };
-		B03F903727FBD69C0086AA82 /* BirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F903627FBD69C0086AA82 /* BirdCell.swift */; };
+		B03F903727FBD69C0086AA82 /* ProduceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03F903627FBD69C0086AA82 /* ProduceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		B03F900027FBA8AC0086AA82 /* AngryBirds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngryBirds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03F900327FBA8AC0086AA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B03F900527FBA8AC0086AA82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B03F900727FBA8AC0086AA82 /* BirdListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdListViewController.swift; sourceTree = "<group>"; };
+		B03F900727FBA8AC0086AA82 /* ProduceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduceListViewController.swift; sourceTree = "<group>"; };
 		B03F900A27FBA8AC0086AA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B03F900D27FBA8AC0086AA82 /* AngryBirds.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AngryBirds.xcdatamodel; sourceTree = "<group>"; };
 		B03F900F27FBA8AD0086AA82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		B03F902327FBA8AE0086AA82 /* AngryBirdsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AngryBirdsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03F902727FBA8AE0086AA82 /* AngryBirdsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngryBirdsUITests.swift; sourceTree = "<group>"; };
 		B03F902927FBA8AE0086AA82 /* AngryBirdsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngryBirdsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B03F903627FBD69C0086AA82 /* BirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdCell.swift; sourceTree = "<group>"; };
+		B03F903627FBD69C0086AA82 /* ProduceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 		B0319D702803A34D002C7C58 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B03F903627FBD69C0086AA82 /* BirdCell.swift */,
+				B03F903627FBD69C0086AA82 /* ProduceCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -104,7 +104,7 @@
 		B0319D712803A354002C7C58 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B03F900727FBA8AC0086AA82 /* BirdListViewController.swift */,
+				B03F900727FBA8AC0086AA82 /* ProduceListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -295,10 +295,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B03F900E27FBA8AC0086AA82 /* AngryBirds.xcdatamodeld in Sources */,
-				B03F900827FBA8AC0086AA82 /* BirdListViewController.swift in Sources */,
+				B03F900827FBA8AC0086AA82 /* ProduceListViewController.swift in Sources */,
 				B0319D6C28039E41002C7C58 /* Produce.swift in Sources */,
 				B0319D6E2803A1E9002C7C58 /* ProduceService.swift in Sources */,
-				B03F903727FBD69C0086AA82 /* BirdCell.swift in Sources */,
+				B03F903727FBD69C0086AA82 /* ProduceCell.swift in Sources */,
 				B03F900427FBA8AC0086AA82 /* AppDelegate.swift in Sources */,
 				B03F900627FBA8AC0086AA82 /* SceneDelegate.swift in Sources */,
 			);
