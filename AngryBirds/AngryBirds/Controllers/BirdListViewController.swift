@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BirdListViewController: UIViewController {
+class ProduceListViewController: UIViewController {
 
 
     @IBOutlet weak var tableView: UITableView!
