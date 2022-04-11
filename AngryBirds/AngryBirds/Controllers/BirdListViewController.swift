@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  AngryBirds
+//  GoodProduce
 //
 //  Created by Mariel Wiechers on 4/4/22.
 //
@@ -33,17 +33,16 @@ class BirdListViewController: UIViewController {
 extension BirdListViewController: UITableViewDataSource {
         //  MARK: DataSource
     
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return self.flock.count
         }
         
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "birdCell") as! BirdCell
             
-            
             let currentProduce = self.flock[indexPath.row]
-            cell.birdNameLabel.text = currentProduce.name
-            cell.birdDescriptionLabel.text = currentProduce.description
+            
+            cell.produce = currentProduce
             
             return cell
         }
@@ -54,6 +53,15 @@ extension BirdListViewController: UITableViewDataSource {
 extension BirdListViewController: UITableViewDelegate {
 //    MARK: Delegate
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if
+            let cell = self.tableView.cellForRow(at: indexPath) as? BirdCell,
+            let confirmedProduce = cell.produce 
+        {
+            confirmedProduce.confirmedEaten = true
+            cell.accessoryType = confirmedProduce.confirmedEaten ? .checkmark : .none
+        }
+    }
     
 }
 
