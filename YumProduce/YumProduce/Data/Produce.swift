@@ -12,7 +12,7 @@ class Produce {
     var description: String
     var confirmedEaten: Bool = false
     
-    var pendingEat: Bool?
+    var pendingEat: Bool = false
     
     init(named name: String, description: String) {
         self.name = name

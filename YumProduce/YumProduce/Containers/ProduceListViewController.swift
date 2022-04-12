@@ -59,28 +59,30 @@ extension ProduceListViewController: UITableViewDelegate {
 //    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let cell = self.tableView.cellForRow(at: indexPath) as? ProduceCell,
-//        let confirmedProduce = cell.produce,
-//        let eaten = confirmedProduce.eaten else {
-        guard let cell = self.tableView.cellForRow(at: indexPath) as? ProduceCell,
-              let confirmedProduce = cell.produce,
-              let eaten = confirmedProduce.pendingEat else {
-            return nil}
-        
-        let title = eaten ?
-        NSLocalizedString("Eaten", comment: "Eaten") :
-        NSLocalizedString("Not Eaten", comment: "Not Eaten")
+        if
+            let cell = self.tableView.cellForRow(at: indexPath) as? ProduceCell,
+            let confirmedProduce = cell.produce
+        {
+            let eatenStatus = confirmedProduce.pendingEat
+            let title = eatenStatus ?
+                NSLocalizedString("Eaten", comment: "Eaten") :
+                NSLocalizedString("Not Eaten", comment: "Not Eaten")
             
-        let action = UIContextualAction(style: .normal, title: title, handler: {(action, view, completionHandler) in
-            confirmedProduce.pendingEat = true
-            completionHandler(true)
+            let action = UIContextualAction(style: .normal, title: title, handler: { (action, view, completionHandler) in
+                confirmedProduce.pendingEat = !confirmedProduce.pendingEat
+                completionHandler(true)
             })
-        
+                
             action.image = UIImage(named: "diamond.inset.fill")
-            action.backgroundColor = eaten ? .systemRed : .green
+            action.backgroundColor = eatenStatus ? .systemGreen : .systemRed
             let configuration = UISwipeActionsConfiguration(actions: [action])
             configuration.performsFirstActionWithFullSwipe = false
             return configuration
         }
+        return nil
+        
+        
     }
+
+}
 

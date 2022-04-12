@@ -16,8 +16,12 @@ class ProduceCell: UITableViewCell {
         didSet {
             self.produceNameLabel.text = produce?.name
             self.produceDescriptionLabel.text = produce?.description
-            self.accessoryType = produce!.confirmedEaten ? .checkmark : .none  
-//            self.accessoryView = produce!.eaten! ? UIImage(systemName: "flame.fill") : .none
+            self.accessoryType = produce!.confirmedEaten ? .checkmark : .none
+            
+            let diamond = UIImageView(frame: CGRect(x: 0, y: 65, width: 25, height: 30))
+            diamond.image = UIImage(systemName: "diamond.inset.fill")
+            diamond.tintColor = .systemRed
+            self.accessoryView = produce!.pendingEat ? diamond : .none
         }
     }
     
