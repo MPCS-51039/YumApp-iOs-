@@ -48,13 +48,39 @@ extension ProduceListViewController: UITableViewDataSource {
 extension ProduceListViewController: UITableViewDelegate {
     //    MARK: Delegate
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if
+//            let cell = self.tableView.cellForRow(at: indexPath) as? ProduceCell,
+//            let confirmedProduce = cell.produce
+//        {
+//            confirmedProduce.confirmedEaten = true
+//            cell.accessoryType = confirmedProduce.confirmedEaten ? .checkmark : .none
+//        }
+//    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if
             let cell = self.tableView.cellForRow(at: indexPath) as? ProduceCell,
             let confirmedProduce = cell.produce
+        
         {
-            confirmedProduce.confirmedEaten = true
-            cell.accessoryType = confirmedProduce.confirmedEaten ? .checkmark : .none
+            guard let confirmedEaten = confirmedProduce.confirmedEaten else {
+                return nil
+            }
+            
+            let title = confirmedEaten ?
+            NSLocalizedString("Eaten", comment: "Eaten") :
+            NSLocalizedString("Not Eaten", comment: "Not Eaten")
+            
+            let action = UIContextualAction(style: .normal, title: title, handler: {(ation, view, completionHandler) in
+                confirmedProduce.confirmedEaten = true
+                completionHandler(true)
+            })
+        
+            action.image = UIImage(named: "diamond.inset.fill")
+            action.backgroundColor = confirmedEaten ? .red : .green
+            let configuration = UISwipeActionsConfiguration(actions: [action])
+            configuration.performsFirstActionWithFullSwipe = false
+            return configuration
         }
     }
-    
 }

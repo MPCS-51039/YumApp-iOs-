@@ -62,6 +62,7 @@ extension ProduceListViewController: UITableViewDelegate {
             cell.accessoryType = confirmedProduce.confirmedEaten ? .checkmark : .none
         }
     }
+
     
 }
 
