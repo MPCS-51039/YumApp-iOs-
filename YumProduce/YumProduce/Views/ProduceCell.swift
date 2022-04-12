@@ -16,7 +16,8 @@ class ProduceCell: UITableViewCell {
         didSet {
             self.produceNameLabel.text = produce?.name
             self.produceDescriptionLabel.text = produce?.description
-//            self.accessoryType = produce!.confirmedEaten ? .checkmark : .none
+            self.accessoryType = produce!.confirmedEaten ? .checkmark : .none  
+//            self.accessoryView = produce!.eaten! ? UIImage(systemName: "flame.fill") : .none
         }
     }
     
