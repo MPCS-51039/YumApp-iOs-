@@ -62,6 +62,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="produceDescriptionLabel" destination="hhv-kX-aLj" id="WYN-88-ZBk"/>
+                                            <outlet property="produceImageView" destination="dTA-wy-7Fw" id="Pw0-El-hTM"/>
                                             <outlet property="produceNameLabel" destination="iCm-n4-OEb" id="hEi-AY-CEw"/>
                                             <segue destination="Aca-wA-nMa" kind="show" id="3eL-1D-Zeu"/>
                                         </connections>
@@ -78,7 +79,7 @@
                             <constraint firstItem="Zod-bc-PvC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uAF-Q8-oTH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Good Produce" largeTitleDisplayMode="never" id="oSm-rZ-pGB"/>
+                    <navigationItem key="navigationItem" title="Good Produce" id="oSm-rZ-pGB" userLabel="Eat Produce"/>
                     <connections>
                         <outlet property="tableView" destination="Zod-bc-PvC" id="dFW-bB-bpY"/>
                     </connections>
@@ -87,21 +88,127 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="83.705357142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="n1o-Ob-Od2">
             <objects>
-                <viewController id="Aca-wA-nMa" sceneMemberID="viewController">
+                <viewController id="Aca-wA-nMa" customClass="DetailViewController" customModule="YumProduce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OFU-86-n5w">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="Ww5-s9-fpW">
+                                <rect key="frame" x="20" y="160" width="374" height="668.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tomatoes" translatesAutoresizingMaskIntoConstraints="NO" id="0aR-Y9-eWV" userLabel="produceImage">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="198.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="0aR-Y9-eWV" secondAttribute="height" multiplier="375:199" id="o7r-hJ-lqC"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bs3-RX-m1c" userLabel="produceName">
+                                        <rect key="frame" x="135.5" y="261.5" width="103.5" height="50.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="42"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="sNs-9H-Hg6">
+                                        <rect key="frame" x="74.5" y="375" width="225" height="293.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="pme-mw-jHz">
+                                                <rect key="frame" x="0.0" y="0.0" width="173" height="33.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b5-7T-TpQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="96.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XZ-iv-9n4" userLabel="produceSeasonLabel">
+                                                        <rect key="frame" x="110.5" y="0.0" width="62.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="iOD-fg-Gci">
+                                                <rect key="frame" x="0.0" y="75.5" width="127" height="67"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEc-6d-tIa" userLabel="Storage:">
+                                                        <rect key="frame" x="0.0" y="0.0" width="101" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYq-cQ-ott" userLabel="produceStorageDescription">
+                                                        <rect key="frame" x="0.0" y="33.5" width="127" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PNV-Gu-xVH">
+                                                <rect key="frame" x="0.0" y="184.5" width="217" height="33.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdL-WM-OTR" userLabel="Rating:">
+                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="my_rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLG-yk-nlO" userLabel="produceRatingLabel">
+                                                        <rect key="frame" x="89.5" y="0.0" width="127.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IjU-OJ-wqB">
+                                                <rect key="frame" x="0.0" y="260" width="225" height="33.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh7-c7-Xc0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="statuslabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOw-q9-wOs" userLabel="produceStatusLabel">
+                                                        <rect key="frame" x="97.5" y="0.0" width="127.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ki6-Jk-Lbo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ww5-s9-fpW" firstAttribute="centerX" secondItem="ki6-Jk-Lbo" secondAttribute="centerX" id="3KV-qj-tKM"/>
+                            <constraint firstItem="ki6-Jk-Lbo" firstAttribute="trailing" secondItem="Ww5-s9-fpW" secondAttribute="trailing" constant="20" id="MWJ-WM-rGh"/>
+                            <constraint firstItem="Ww5-s9-fpW" firstAttribute="top" secondItem="ki6-Jk-Lbo" secondAttribute="top" constant="20" id="V7U-cz-K73"/>
+                            <constraint firstItem="Ww5-s9-fpW" firstAttribute="leading" secondItem="ki6-Jk-Lbo" secondAttribute="leading" constant="20" id="aNQ-B3-cbR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1M2-Bp-uSR"/>
+                    <connections>
+                        <outlet property="produceBannerImage" destination="0aR-Y9-eWV" id="TST-bV-fke"/>
+                        <outlet property="produceName" destination="Bs3-RX-m1c" id="MGr-up-7XY"/>
+                        <outlet property="produceRating" destination="dLG-yk-nlO" id="wgb-1B-Bad"/>
+                        <outlet property="produceSeasonLabel" destination="5XZ-iv-9n4" id="jLU-y4-hxD"/>
+                        <outlet property="produceStatusLabel" destination="QOw-q9-wOs" id="P3G-1H-s9b"/>
+                        <outlet property="produceStorageDescription" destination="WYq-cQ-ott" id="oVE-vg-wHa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ype-XS-CJU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1770" y="84"/>
+            <point key="canvasLocation" x="1769.5652173913045" y="83.705357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Sx-7l-XFY">
@@ -110,7 +217,7 @@
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Wac-UH-nwa">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="tintColor" systemColor="systemGreenColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -125,6 +232,7 @@
     </scenes>
     <resources>
         <image name="circle.hexagongrid.fill" catalog="system" width="128" height="112"/>
+        <image name="tomatoes" width="1920" height="1080"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

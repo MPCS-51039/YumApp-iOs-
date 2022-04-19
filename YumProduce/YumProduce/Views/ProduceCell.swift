@@ -11,6 +11,7 @@ class ProduceCell: UITableViewCell {
 
     @IBOutlet weak var produceNameLabel: UILabel!
     @IBOutlet weak var produceDescriptionLabel: UILabel!
+    @IBOutlet weak var produceImageView: UIImageView!
     
     var produce: Produce? {
         didSet {
@@ -18,10 +19,14 @@ class ProduceCell: UITableViewCell {
             self.produceDescriptionLabel.text = produce?.description
             self.accessoryType = produce!.confirmedEaten ? .checkmark : .none
             
-            let diamond = UIImageView(frame: CGRect(x: 0, y: 65, width: 25, height: 30))
-            diamond.image = UIImage(systemName: "diamond.inset.fill")
-            diamond.tintColor = .systemRed
-            self.accessoryView = produce!.pendingEat ? diamond : .none
+            DispatchQueue.global(qos: .userInitiated).async {
+                let produceImageData = NSData(contentsOf: URL(string: self.produce!.imageUrl)!)
+                
+                DispatchQueue.main.async {
+                    self.produceImageView.image = UIImage(data: produceImageData! as Data)
+                    self.produceImageView.layer.cornerRadius = self.produceImageView.frame.width / 2
+                }
+            }
         }
     }
     

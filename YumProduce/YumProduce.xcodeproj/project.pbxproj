@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B01083C1280E316700F3E272 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01083C0280E316700F3E272 /* DetailViewController.swift */; };
 		B0319D7F2803C406002C7C58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319D7E2803C406002C7C58 /* AppDelegate.swift */; };
 		B0319D812803C406002C7C58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319D802803C406002C7C58 /* SceneDelegate.swift */; };
 		B0319D832803C406002C7C58 /* ProduceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319D822803C406002C7C58 /* ProduceListViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B01083C0280E316700F3E272 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B0319D7B2803C406002C7C58 /* YumProduce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YumProduce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0319D7E2803C406002C7C58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0319D802803C406002C7C58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +109,7 @@
 		B0319D7D2803C406002C7C58 /* YumProduce */ = {
 			isa = PBXGroup;
 			children = (
-				B0319DBC2803D8D1002C7C58 /* Containers */,
+				B0319DBC2803D8D1002C7C58 /* Controllers */,
 				B0319DBD2803D8E6002C7C58 /* Data */,
 				B0319DBB2803D8B9002C7C58 /* Views */,
 				B0319D7E2803C406002C7C58 /* AppDelegate.swift */,
@@ -146,12 +148,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B0319DBC2803D8D1002C7C58 /* Containers */ = {
+		B0319DBC2803D8D1002C7C58 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				B0319D822803C406002C7C58 /* ProduceListViewController.swift */,
+				B01083C0280E316700F3E272 /* DetailViewController.swift */,
 			);
-			path = Containers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		B0319DBD2803D8E6002C7C58 /* Data */ = {
@@ -301,6 +304,7 @@
 				B0319D832803C406002C7C58 /* ProduceListViewController.swift in Sources */,
 				B0319D7F2803C406002C7C58 /* AppDelegate.swift in Sources */,
 				B0319D812803C406002C7C58 /* SceneDelegate.swift in Sources */,
+				B01083C1280E316700F3E272 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,10 +19,28 @@ class ProduceListViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.produceService = ProduceService()
-        self.market = self.produceService.getProduce()
+        self.produceService.getProduce(completion: { produces, error in
+            guard let produces = produces, error == nil else {
+                return
+            }
+            self.market = produces
+            self.tableView.reloadData()
+        })
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //  downcast from UIVIew contorler to detail view conteoller, optional return so, if destination is nil
+        guard
+            let destination = segue.destination as? DetailViewController,
+            let selectedIndexPath = self.tableView.indexPathForSelectedRow,
+            let confirmedCell = self.tableView.cellForRow(at: selectedIndexPath) as? ProduceCell
+            else {return}
+            
+        let confirmedProduce = confirmedCell.produce
+        destination.produce = confirmedProduce
     }
 }
 
@@ -63,18 +81,22 @@ extension ProduceListViewController: UITableViewDelegate {
             let cell = self.tableView.cellForRow(at: indexPath) as? ProduceCell,
             let confirmedProduce = cell.produce
         {
-            let eatenStatus = confirmedProduce.pendingEat
+            let eatenStatus = confirmedProduce.confirmedEaten
             let title = eatenStatus ?
                 NSLocalizedString("Eaten", comment: "Eaten") :
                 NSLocalizedString("Not Eaten", comment: "Not Eaten")
-            
+
             let action = UIContextualAction(style: .normal, title: title, handler: { (action, view, completionHandler) in
-                confirmedProduce.pendingEat = !confirmedProduce.pendingEat
+                confirmedProduce.confirmedEaten = !confirmedProduce.confirmedEaten
                 completionHandler(true)
-            })
+            
+            action.image = eatenStatus ? UIImage(named: "diamond.inset.fill") : .none
+
                 
-            action.image = UIImage(named: "diamond.inset.fill")
+            })
+            
             action.backgroundColor = eatenStatus ? .systemGreen : .systemRed
+        
             let configuration = UISwipeActionsConfiguration(actions: [action])
             configuration.performsFirstActionWithFullSwipe = false
             return configuration
@@ -83,6 +105,7 @@ extension ProduceListViewController: UITableViewDelegate {
         
         
     }
-
 }
+
+
 
