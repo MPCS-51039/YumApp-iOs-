@@ -25,6 +25,11 @@ class DetailViewController: UIViewController {
         self.produceSeasonLabel.text = produce?.season
         self.produceStatusLabel.text = produce?.status
         self.produceRating.text = produce?.rating
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let produceImageData = NSData(contentsOf: URL(string: self.produce!.imageUrl)!)
+            DispatchQueue.main.async {
+                self.produceBannerImage.image = UIImage(data: produceImageData! as Data)
 //        self.produceBannerImage.image = produce?.imageUrl
         
 
@@ -43,4 +48,6 @@ class DetailViewController: UIViewController {
     }
     */
 
+}
+}
 }
