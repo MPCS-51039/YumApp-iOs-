@@ -37,6 +37,11 @@
                BlueprintName = "YumProduceTests"
                ReferencedContainer = "container:YumProduce.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ProduceListViewControllerTests/testExample()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">

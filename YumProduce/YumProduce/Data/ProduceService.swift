@@ -18,7 +18,7 @@ class ProduceService {
     private let urlString = "https://run.mocky.io/v3/0e462cdb-a8b1-4e7a-853f-081887b5969c"
     
     func getProduce(completion: @escaping ([Produce]?, Error?) -> ()) {
-            guard let url = URL(string: self.urlString) else {
+            guard let url = URL(string: self.urlString) else { //url initializer, we ensure it can create URL form our string, otherwise we switch to main dispatch queue
                 DispatchQueue.main.async { completion(nil, ProduceCallingError.problemGeneratingURL) }
                 return
         }

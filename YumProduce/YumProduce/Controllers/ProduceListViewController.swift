@@ -18,17 +18,28 @@ class ProduceListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.produceService = ProduceService()
-        self.produceService.getProduce(completion: { produces, error in
+        self.produceService = ProduceService() //assign new Service  to new service, how to inject nock service before it gets called?
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) { //here we can inject part of our code, trade out our mock for real service
+        guard let confirmedService = self.produceService else { return }
+        
+        confirmedService.getProduce(completion: { produces, error in
             guard let produces = produces, error == nil else {
+//                let produceError = error as! ProduceCallingError
+//                switch (produceError) {
+//                case .problemGeneratingURL:
+//
+//                    self.produceImageView.image = UIImage(data: produceImageData! as Data)
+//                }
                 return
             }
             self.market = produces
             self.tableView.reloadData()
         })
-        
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

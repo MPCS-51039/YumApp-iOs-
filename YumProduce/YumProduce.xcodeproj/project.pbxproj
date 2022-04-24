@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B01083C1280E316700F3E272 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01083C0280E316700F3E272 /* DetailViewController.swift */; };
+		B01083C32815C03900F3E272 /* ProduceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01083C22815C03900F3E272 /* ProduceTest.swift */; };
+		B01083C52815C63F00F3E272 /* ProduceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01083C42815C63F00F3E272 /* ProduceServiceTests.swift */; };
+		B01083C72815CC2400F3E272 /* ProduceListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01083C62815CC2400F3E272 /* ProduceListViewControllerTests.swift */; };
 		B0319D7F2803C406002C7C58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319D7E2803C406002C7C58 /* AppDelegate.swift */; };
 		B0319D812803C406002C7C58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319D802803C406002C7C58 /* SceneDelegate.swift */; };
 		B0319D832803C406002C7C58 /* ProduceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319D822803C406002C7C58 /* ProduceListViewController.swift */; };
@@ -42,6 +45,9 @@
 
 /* Begin PBXFileReference section */
 		B01083C0280E316700F3E272 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B01083C22815C03900F3E272 /* ProduceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduceTest.swift; sourceTree = "<group>"; };
+		B01083C42815C63F00F3E272 /* ProduceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduceServiceTests.swift; sourceTree = "<group>"; };
+		B01083C62815CC2400F3E272 /* ProduceListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduceListViewControllerTests.swift; sourceTree = "<group>"; };
 		B0319D7B2803C406002C7C58 /* YumProduce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YumProduce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0319D7E2803C406002C7C58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0319D802803C406002C7C58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				B0319D982803C408002C7C58 /* YumProduceTests.swift */,
+				B01083C42815C63F00F3E272 /* ProduceServiceTests.swift */,
+				B01083C22815C03900F3E272 /* ProduceTest.swift */,
+				B01083C62815CC2400F3E272 /* ProduceListViewControllerTests.swift */,
 			);
 			path = YumProduceTests;
 			sourceTree = "<group>";
@@ -312,7 +321,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B01083C52815C63F00F3E272 /* ProduceServiceTests.swift in Sources */,
+				B01083C32815C03900F3E272 /* ProduceTest.swift in Sources */,
 				B0319D992803C408002C7C58 /* YumProduceTests.swift in Sources */,
+				B01083C72815CC2400F3E272 /* ProduceListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

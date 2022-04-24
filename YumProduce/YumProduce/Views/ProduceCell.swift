@@ -23,12 +23,17 @@ class ProduceCell: UITableViewCell {
                 let produceImageData = NSData(contentsOf: URL(string: self.produce!.imageUrl)!)
                 
                 DispatchQueue.main.async {
-                    self.produceImageView.image = UIImage(data: produceImageData! as Data)
-                    self.produceImageView.layer.cornerRadius = self.produceImageView.frame.width / 2
+                    switch (produceImageData) {
+                    case nil:
+                        self.produceImageView.image = UIImage(named: "diamond")
+                    default:
+                        self.produceImageView.image = UIImage(data: produceImageData! as Data)
                 }
+                    self.produceImageView.layer.cornerRadius = self.produceImageView.frame.width / 2
             }
         }
     }
+}
     
     override func awakeFromNib() {
         super.awakeFromNib()
