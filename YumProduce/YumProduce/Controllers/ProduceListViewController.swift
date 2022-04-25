@@ -18,7 +18,7 @@ class ProduceListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.produceService = ProduceService() //assign new Service  to new service, how to inject nock service before it gets called?
+        self.produceService = ProduceService() //assign new Service to new service, how to inject nock service before it gets called?
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -29,18 +29,27 @@ class ProduceListViewController: UIViewController {
         
         confirmedService.getProduce(completion: { produces, error in
             guard let produces = produces, error == nil else {
-//                let produceError = error as! ProduceCallingError
-//                switch (produceError) {
-//                case .problemGeneratingURL:
-//
-//                    self.produceImageView.image = UIImage(data: produceImageData! as Data)
-//                }
                 return
             }
-            self.market = produces
+            
+            switch (produces.count) {
+            case 0:
+                print("empty json")
+                let labelRect = CGRect(x: 80, y: 100, width: 200, height: 100)
+                let label = UILabel(frame: labelRect)
+                label.textColor = .systemRed
+                label.text = "No Produce to show :("
+                label.numberOfLines = 2
+                self.tableView.addSubview(label)
+                
+            default:
+                self.market = produces
+            }
             self.tableView.reloadData()
+            
         })
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  downcast from UIVIew contorler to detail view conteoller, optional return so, if destination is nil
@@ -48,20 +57,22 @@ class ProduceListViewController: UIViewController {
             let destination = segue.destination as? DetailViewController,
             let selectedIndexPath = self.tableView.indexPathForSelectedRow,
             let confirmedCell = self.tableView.cellForRow(at: selectedIndexPath) as? ProduceCell
-            else {return}
+            else { return }
             
         let confirmedProduce = confirmedCell.produce
         destination.produce = confirmedProduce
     }
 }
 
+
 extension ProduceListViewController: UITableViewDataSource {
     //    MARK: DataSource
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return self.market.count
     }
-    
+
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "produceCell") as! ProduceCell
         
@@ -70,8 +81,7 @@ extension ProduceListViewController: UITableViewDataSource {
         cell.produce = currentProduce
         
         return cell
-
-        }
+    }
 }
 
 extension ProduceListViewController: UITableViewDelegate {
