@@ -25,10 +25,19 @@ class ProduceListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) { //here we can inject part of our code, trade out our mock for real service
-        guard let confirmedService = self.produceService else { return }
+        guard let confirmedService = self.produceService else {
+            return
+        }
         
         confirmedService.getProduce(completion: { produces, error in
             guard let produces = produces, error == nil else {
+                let alert = UIAlertController(title: "Error", message: "Unable to fetch instances from API", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: { _ in //Retry Action
+                    self.produceService = ProduceService()
+}))
+                alert.addAction(UIAlertAction(title: "Exit", style: UIAlertAction.Style.destructive, handler: {(_: UIAlertAction!) in // Exit action
+}))
+                self.present(alert, animated: true, completion: nil)
                 return
             }
             
@@ -75,7 +84,7 @@ extension ProduceListViewController: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "produceCell") as! ProduceCell
-        
+
         let currentProduce = self.market[indexPath.row]
         
         cell.produce = currentProduce
@@ -112,7 +121,6 @@ extension ProduceListViewController: UITableViewDelegate {
                 completionHandler(true)
             
             action.image = eatenStatus ? UIImage(named: "diamond.inset.fill") : .none
-
                 
             })
             
@@ -123,8 +131,6 @@ extension ProduceListViewController: UITableViewDelegate {
             return configuration
         }
         return nil
-        
-        
     }
 }
 

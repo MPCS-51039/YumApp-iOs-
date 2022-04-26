@@ -10,7 +10,6 @@ import Foundation
 class Produce: CustomDebugStringConvertible, Codable{
     var debugDescription: String {
         return "Produce(name: \(self.name), description: \(self.description))"
-        
     }
     
     var name: String
@@ -32,7 +31,6 @@ class Produce: CustomDebugStringConvertible, Codable{
         self.imageUrl = imageUrl
         self.season = season
     }
-    
 }
 
 struct ProduceResult: Codable {
