@@ -16,7 +16,7 @@ class ProduceCell: UITableViewCell {
     var produce: Produce? {
         didSet {
             self.produceNameLabel.text = produce?.name
-            self.produceDescriptionLabel.text = produce?.description
+            self.produceDescriptionLabel.text = produce?.status
             self.accessoryType = produce!.confirmedEaten ? .checkmark : .none
             
             DispatchQueue.global(qos: .userInitiated).async {

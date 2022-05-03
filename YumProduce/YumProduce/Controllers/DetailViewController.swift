@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.produceName.text = produce?.name
+        self.produceStorageDescription.text = produce?.description
         self.produceSeasonLabel.text = produce?.season
         self.produceStatusLabel.text = produce?.status
         self.produceRating.text = produce?.rating

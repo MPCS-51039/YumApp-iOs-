@@ -8,7 +8,14 @@
 import UIKit
 
 class ProduceListViewController: UIViewController {
-
+    
+    @IBOutlet weak var spinnerView: UIView! {
+           didSet {
+               spinnerView.layer.cornerRadius = 6
+           }
+       }
+    @IBOutlet weak var spinnerIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var tableView: UITableView!
     
     var market: [Produce] = []
@@ -16,15 +23,33 @@ class ProduceListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        self.produceService = ProduceService() //assign new Service to new service, how to inject nock service before it gets called?
+        func showSpinner() {
+            spinnerIndicator.startAnimating()
+            spinnerView.isHidden = false
+        }
+        
+        func hideSpinner() {
+            spinnerIndicator.stopAnimating()
+            spinnerView.isHidden = true
+        }
+        
+        // Do any additional setup after loading the view.
+
+        showSpinner()
+        
+        self.produceService = ProduceService() //assign new Service to new service, inject nock service before it gets called?
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            hideSpinner()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) { //here we can inject part of our code, trade out our mock for real service
+
         guard let confirmedService = self.produceService else {
             return
         }
@@ -52,6 +77,7 @@ class ProduceListViewController: UIViewController {
                 self.tableView.addSubview(label)
                 
             default:
+                let produces = produces.sorted(by: { $0.name < $1.name })
                 self.market = produces
             }
             self.tableView.reloadData()
