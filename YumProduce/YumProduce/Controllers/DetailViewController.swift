@@ -16,7 +16,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var produceSeasonLabel: UILabel!
     @IBOutlet weak var produceStorageDescription: UILabel!
     @IBOutlet weak var produceStatusLabel: UILabel!
-    @IBOutlet weak var produceRating: UILabel!
+
+    @IBOutlet var starButtons: [UIButton]!
     
 
     override func viewDidLoad() {
@@ -25,19 +26,19 @@ class DetailViewController: UIViewController {
         self.produceStorageDescription.text = produce?.description
         self.produceSeasonLabel.text = produce?.season
         self.produceStatusLabel.text = produce?.status
-        self.produceRating.text = produce?.rating
+//        self.produceRating.rating = produce!.rating 
+//        self.starButtons.endIndex = produce?.rating
+//        self.rating = RatingView(rating: 0)
         
         DispatchQueue.global(qos: .userInitiated).async {
             let produceImageData = NSData(contentsOf: URL(string: self.produce!.imageUrl)!)
             DispatchQueue.main.async {
                 self.produceBannerImage.image = UIImage(data: produceImageData! as Data)
-//        self.produceBannerImage.image = produce?.imageUrl
-        
+            }
+            //        self.produceBannerImage.image = produce?.imageUrl
 
-
-        // Do any additional setup after loading the view.
-    }
-    
+            //            RatingView(rating: $rating)
+                    // Do any additional setup after loading the view.
 
     /*
     // MARK: - Navigation
@@ -49,6 +50,18 @@ class DetailViewController: UIViewController {
     }
     */
 
+        }
 }
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        print("Rated \(sender.tag) stars.")
+
+        for button in starButtons {
+            if button.tag <= sender.tag {
+                button.setBackgroundImage(UIImage.init(named: "star.fill"), for: .normal)
+            } else {
+                button.setBackgroundImage(UIImage.init(named: "star"), for: .normal)
+                
+        }
+    }
 }
 }
