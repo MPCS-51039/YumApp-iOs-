@@ -8,7 +8,8 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    var produce: Produce? // set variable in detail vire controller, proud e that is of Produce typpe ! = force unwrap, only if Produce present -> there is detail
+    var produce: Produce? // set variable in detail view controller, proud e that is of Produce typpe ! = force unwrap, only if Produce present -> there is detail
+
     
     @IBOutlet weak var produceBannerImage: UIImageView!
     @IBOutlet weak var produceName: UILabel!
@@ -19,16 +20,14 @@ class DetailViewController: UIViewController {
 
     @IBOutlet var starButtons: [UIButton]!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.produceName.text = produce?.name
         self.produceStorageDescription.text = produce?.description
         self.produceSeasonLabel.text = produce?.season
         self.produceStatusLabel.text = produce?.status
-//        self.produceRating.rating = produce!.rating 
-//        self.starButtons.endIndex = produce?.rating
-//        self.rating = RatingView(rating: 0)
+//        self.ratingDetailLabel.text = produce?.rating
+        
         
         DispatchQueue.global(qos: .userInitiated).async {
             let produceImageData = NSData(contentsOf: URL(string: self.produce!.imageUrl)!)
@@ -37,7 +36,6 @@ class DetailViewController: UIViewController {
             }
             //        self.produceBannerImage.image = produce?.imageUrl
 
-            //            RatingView(rating: $rating)
                     // Do any additional setup after loading the view.
 
     /*
@@ -52,16 +50,18 @@ class DetailViewController: UIViewController {
 
         }
 }
+    
     @IBAction func buttonTapped(_ sender: UIButton) {
-        print("Rated \(sender.tag) stars.")
-
-        for button in starButtons {
+            print("Rated \(sender.tag) stars.")
+        
+        for button in self.starButtons {
+            print(button.tag)
             if button.tag <= sender.tag {
                 button.setBackgroundImage(UIImage.init(named: "star.fill"), for: .normal)
             } else {
                 button.setBackgroundImage(UIImage.init(named: "star"), for: .normal)
-                
         }
     }
+        produce?.rating = sender.tag
 }
 }

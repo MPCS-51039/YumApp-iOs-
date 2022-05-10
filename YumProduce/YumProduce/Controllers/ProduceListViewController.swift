@@ -119,6 +119,23 @@ extension ProduceListViewController: UITableViewDataSource {
     }
 }
 
+func imageForRating(rating:Int) -> UIImage? {
+    switch rating {
+    case 1:
+        return UIImage(named: "1StarSmall")
+    case 2:
+        return UIImage(named: "2StarsSmall")
+    case 3:
+        return UIImage(named: "3StarsSmall")
+    case 4:
+        return UIImage(named: "4StarsSmall")
+    case 5:
+        return UIImage(named: "5StarsSmall")
+    default:
+        return nil
+    }
+}
+
 extension ProduceListViewController: UITableViewDelegate {
     //    MARK: Delegate
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

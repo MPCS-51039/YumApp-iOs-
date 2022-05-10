@@ -10,14 +10,15 @@ import UIKit
 class ProduceCell: UITableViewCell {
 
     @IBOutlet weak var produceNameLabel: UILabel!
-    @IBOutlet weak var produceDescriptionLabel: UILabel!
     @IBOutlet weak var produceImageView: UIImageView!
+    @IBOutlet weak var ratingImageView: UIImageView!
     
     var produce: Produce? {
         didSet {
+
             self.produceNameLabel.text = produce?.name
-            self.produceDescriptionLabel.text = produce?.status
-            self.accessoryType = produce!.confirmedEaten ? .checkmark : .none
+            self.ratingImageView.image = image(forRating: produce!.rating )
+//            self.accessoryType = produce!.confirmedEaten ? .checkmark : .none
             
             DispatchQueue.global(qos: .userInitiated).async {
                 let produceImageData = NSData(contentsOf: URL(string: self.produce!.imageUrl)!)
@@ -34,7 +35,11 @@ class ProduceCell: UITableViewCell {
         }
     }
 }
-    
+    private func image(forRating rating: Int) -> UIImage? {
+        let imageName = "\(rating)StarsSmall"
+        return UIImage(named: imageName)
+    }
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Produce: CustomDebugStringConvertible, Codable{
     var debugDescription: String {
@@ -17,7 +18,7 @@ class Produce: CustomDebugStringConvertible, Codable{
     var imageUrl: String
     var season: String
     
-    var rating: String = "Not rated"
+    var rating: Int = 0
     var confirmedEaten: Bool = false
     var status: String = "Never Eaten"
     
