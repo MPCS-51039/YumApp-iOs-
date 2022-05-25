@@ -35,7 +35,6 @@ class SeasonListViewController: UIViewController {
         }
         
         self.seasonalTableView.reloadData()
-
 }
                                     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -77,6 +77,8 @@ extension KitchenListViewController: UITableViewDelegate {
 
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let initialKitchenCount = self.kitchen.count
+        
         if
             let cell = self.kitchenTableView.cellForRow(at: indexPath) as? ProduceCell,
             let selectedProduce = cell.produce
@@ -85,17 +87,20 @@ extension KitchenListViewController: UITableViewDelegate {
                 NSLocalizedString("Yum!", comment: "Yum!") :
                 NSLocalizedString("Add", comment: "Add")
 
-            let delete = UIContextualAction(style: .destructive, title: title, handler: { (action, view, completionHandler) in
+            let delete = UIContextualAction(style: .normal, title: title, handler: { (action, view, completionHandler) in
                 
                 selectedProduce.inKitchen = !selectedProduce.inKitchen
                 
                 print(selectedProduce.name, selectedProduce.inKitchen)
                 
-                
                 self.kitchen.remove(at: indexPath.row)
 
                 // delete the table view row
                 self.kitchenTableView.deleteRows(at: [indexPath], with: .fade)
+                
+                if self.kitchen.count < initialKitchenCount {
+                    ProduceData.instance.shouldReloadIndex = true
+                }
     
                 completionHandler(true)
                 

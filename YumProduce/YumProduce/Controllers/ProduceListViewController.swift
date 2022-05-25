@@ -14,17 +14,14 @@ class ProduceListViewController: UIViewController {
     
     var seasons: [Season]!
     var market: [Produce] = []
-//    {
-//        didSet {
-//            self.tableView.reloadData()
-//        }}
+
     var produceService: ProduceService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.seasons = [
-            Season(name:"All Year",imageUrl: "https://thumbs.dreamstime.com/z/graphic-black-flat-vector-all-four-seasons-icon-isolated-winter-spring-summer-autumn-year-round-sign-snow-rain-sun-symbols-eps-137606744.jpg" ),
+            Season(name:"Year-round",imageUrl: "https://thumbs.dreamstime.com/z/graphic-black-flat-vector-all-four-seasons-icon-isolated-winter-spring-summer-autumn-year-round-sign-snow-rain-sun-symbols-eps-137606744.jpg" ),
             Season(name:"Spring", imageUrl: "https://www.creativefabrica.com/wp-content/uploads/2021/08/13/Flower-icon-four-pink-flower-design-art-Graphics-15836070-1.jpg"),
             Season(name: "Summer", imageUrl: "https://icon-library.com/images/summer-icon/summer-icon-9.jpg"),
             Season(name:"Fall", imageUrl: "https://www.downloadclipart.net/large/autumn-fall-leaves-clip-art-png.png"),

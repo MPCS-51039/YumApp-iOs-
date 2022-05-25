@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l92-1X-S1q">
-                                <rect key="frame" x="0.0" y="149" width="414" height="641"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vMO-V1-KHA" userLabel="Season Table View">
-                                        <rect key="frame" x="20" y="20" width="374" height="601"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="633"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="produceCell" rowHeight="90" id="eQp-HI-lUm" customClass="ProduceCell" customModule="YumProduce" customModuleProvider="target">
@@ -71,10 +71,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="vMO-V1-KHA" firstAttribute="centerY" secondItem="l92-1X-S1q" secondAttribute="centerY" id="24b-cc-quX"/>
-                                    <constraint firstAttribute="bottom" secondItem="vMO-V1-KHA" secondAttribute="bottom" constant="20" id="KMP-2L-OVz"/>
                                     <constraint firstAttribute="trailing" secondItem="vMO-V1-KHA" secondAttribute="trailing" constant="20" id="R68-Xe-Pki"/>
                                     <constraint firstItem="vMO-V1-KHA" firstAttribute="top" secondItem="SQa-dt-HIc" secondAttribute="top" constant="20" id="czw-jW-LXY"/>
                                     <constraint firstItem="vMO-V1-KHA" firstAttribute="centerX" secondItem="l92-1X-S1q" secondAttribute="centerX" id="kN6-E0-xr6"/>
+                                    <constraint firstAttribute="bottom" secondItem="vMO-V1-KHA" secondAttribute="bottom" id="qul-cO-XSq"/>
                                     <constraint firstItem="vMO-V1-KHA" firstAttribute="leading" secondItem="SQa-dt-HIc" secondAttribute="leading" constant="20" id="uxU-Tt-iKc"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="yXr-e5-l8h"/>
@@ -84,20 +84,30 @@
                         <viewLayoutGuide key="safeArea" id="EjB-04-S30"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="l92-1X-S1q" firstAttribute="height" secondItem="EjB-04-S30" secondAttribute="height" id="0zT-jb-RA7"/>
                             <constraint firstAttribute="trailing" secondItem="l92-1X-S1q" secondAttribute="trailing" id="2m5-hL-vGR"/>
-                            <constraint firstItem="l92-1X-S1q" firstAttribute="top" secondItem="EjB-04-S30" secondAttribute="top" constant="9" id="Nfp-c7-Tfo"/>
+                            <constraint firstItem="l92-1X-S1q" firstAttribute="width" secondItem="EjB-04-S30" secondAttribute="width" id="LFp-eW-WXp"/>
+                            <constraint firstItem="l92-1X-S1q" firstAttribute="width" secondItem="v9n-Lz-Hja" secondAttribute="width" id="Woj-vu-JOR"/>
                             <constraint firstItem="l92-1X-S1q" firstAttribute="leading" secondItem="v9n-Lz-Hja" secondAttribute="leading" id="aYH-aR-A1Z"/>
-                            <constraint firstItem="EjB-04-S30" firstAttribute="bottom" secondItem="l92-1X-S1q" secondAttribute="bottom" constant="72" id="wNA-Lj-hSk"/>
+                            <constraint firstItem="l92-1X-S1q" firstAttribute="centerX" secondItem="EjB-04-S30" secondAttribute="centerX" id="uR1-D5-Xts"/>
+                            <constraint firstItem="EjB-04-S30" firstAttribute="bottom" secondItem="l92-1X-S1q" secondAttribute="bottom" id="wNA-Lj-hSk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ghh-5A-9Fh" userLabel="Good Produce"/>
+                    <navigationItem key="navigationItem" id="ghh-5A-9Fh" userLabel="Good Produce">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="fork.knife.circle.fill" catalog="system" id="7Yr-SL-D8q" userLabel="myKitchenButton">
+                            <color key="tintColor" systemColor="systemGreenColor"/>
+                            <connections>
+                                <segue destination="lH3-wY-X1g" kind="show" id="Zmj-lU-f5x"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="seasonalTableView" destination="vMO-V1-KHA" id="uob-uE-goA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eqd-l3-bj6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1963.7681159420292" y="-264.50892857142856"/>
+            <point key="canvasLocation" x="1964" y="-692"/>
         </scene>
         <!--Good Produce-->
         <scene sceneID="tne-QT-ifu">
@@ -114,7 +124,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="895.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfI-DO-qit" userLabel="Seasonal View">
-                                                <rect key="frame" x="0.0" y="100" width="414" height="178"/>
+                                                <rect key="frame" x="0.0" y="101" width="414" height="178"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seasonal Produce" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T9-os-FT3" userLabel="Seasonal Produce">
                                                         <rect key="frame" x="16" y="6" width="382" height="24"/>
@@ -199,7 +209,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVY-ee-gML" userLabel="All Produce View">
-                                                <rect key="frame" x="0.0" y="318" width="414" height="577.5"/>
+                                                <rect key="frame" x="0.0" y="319" width="414" height="576.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gU1-iI-Vaq" userLabel="All Produce">
                                                         <rect key="frame" x="16" y="10" width="382" height="38.5"/>
@@ -214,7 +224,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zod-bc-PvC">
-                                                        <rect key="frame" x="20" y="56.5" width="374" height="501"/>
+                                                        <rect key="frame" x="20" y="56.5" width="374" height="500"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="produceCell" rowHeight="75" id="YNK-2v-bnE" customClass="ProduceCell" customModule="YumProduce" customModuleProvider="target">
@@ -302,14 +312,16 @@
                             <constraint firstAttribute="bottom" secondItem="Bsr-R5-74u" secondAttribute="bottom" id="n4v-eB-wK2"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Good Produce" id="oSm-rZ-pGB">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="fork.knife.circle.fill" catalog="system" id="7Yr-SL-D8q" userLabel="myKitchenButton">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="fork.knife.circle.fill" catalog="system" id="Sda-2A-upV" userLabel="myKitchenButton">
                             <color key="tintColor" systemColor="systemGreenColor"/>
                             <connections>
-                                <segue destination="lH3-wY-X1g" kind="show" id="Zmj-lU-f5x"/>
+                                <segue destination="lH3-wY-X1g" kind="show" id="DtA-xG-z3r"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="seasonCollectionView" destination="uS3-Qc-PeT" id="dJT-x8-sw3"/>
                         <outlet property="tableView" destination="Zod-bc-PvC" id="dFW-bB-bpY"/>
@@ -328,13 +340,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gU-LM-Uyv" userLabel="View ScrollView Container">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEx-jR-qzn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Oh-za-Vt3" userLabel="Kitchen Table View">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="produceCell" rowHeight="90" id="FS3-Bg-qpg" customClass="ProduceCell" customModule="YumProduce" customModuleProvider="target">
@@ -418,7 +430,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYC-u9-gs9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="840.40178571428567"/>
+            <point key="canvasLocation" x="2771" y="84"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="n1o-Ob-Od2">
@@ -429,7 +441,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ghh-Rw-xU7">
-                                <rect key="frame" x="16" y="480" width="382" height="366"/>
+                                <rect key="frame" x="16" y="480" width="382" height="317"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="nde-Ga-YH1">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="42"/>
@@ -457,7 +469,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="hgH-83-zy6">
-                                        <rect key="frame" x="0.0" y="149" width="382" height="60"/>
+                                        <rect key="frame" x="0.0" y="124.5" width="382" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="How to Store:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEc-6d-tIa" userLabel="Storage:">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="26.5"/>
@@ -475,7 +487,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd6-P8-6a0" userLabel="addButton">
-                                        <rect key="frame" x="0.0" y="316" width="382" height="50"/>
+                                        <rect key="frame" x="0.0" y="267" width="382" height="50"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="tUO-N0-J6J"/>
@@ -486,6 +498,9 @@
                                         <state key="normal" title="Add to &quot;My Kitchen&quot;">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addToKitchenButton:" destination="Aca-wA-nMa" eventType="touchUpInside" id="IwD-fy-lcJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -504,7 +519,16 @@
                             <constraint firstItem="ki6-Jk-Lbo" firstAttribute="bottom" secondItem="ghh-Rw-xU7" secondAttribute="bottom" constant="16" id="lkL-kO-gXj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1M2-Bp-uSR" colorLabel="IBBuiltInLabel-Green"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="1M2-Bp-uSR" colorLabel="IBBuiltInLabel-Green">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="fork.knife.circle.fill" catalog="system" id="WO9-Oh-Chw" userLabel="myKitchenButton">
+                            <color key="tintColor" systemColor="systemGreenColor"/>
+                            <connections>
+                                <segue destination="lH3-wY-X1g" kind="show" id="GAs-Hs-duA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="produceBannerImage" destination="0aR-Y9-eWV" id="TST-bV-fke"/>
                         <outlet property="produceName" destination="Bs3-RX-m1c" id="MGr-up-7XY"/>
@@ -514,7 +538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ype-XS-CJU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="420"/>
+            <point key="canvasLocation" x="1964" y="856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Sx-7l-XFY">
@@ -543,7 +567,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ndf-ey-RZ8"/>
+        <segue reference="3eL-1D-Zeu"/>
+        <segue reference="GAs-Hs-duA"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemGreenColor"/>
     <resources>
