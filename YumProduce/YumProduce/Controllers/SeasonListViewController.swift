@@ -9,9 +9,10 @@ import UIKit
 
 class SeasonListViewController: UIViewController {
     
+    var season: Season!
+    
     @IBOutlet weak var seasonalTableView: UITableView!
     
-    var season: Season!
     var seasonal: [Produce] = []
     
     override func viewDidLoad() {
@@ -28,10 +29,11 @@ class SeasonListViewController: UIViewController {
         self.seasonal = []
         
         for produce in ProduceData.instance.produces {
-            if produce.season == title {
+            if produce.season == season.name {
                 self.seasonal.append(produce)
             }
         }
+        
         self.seasonalTableView.reloadData()
 
 }

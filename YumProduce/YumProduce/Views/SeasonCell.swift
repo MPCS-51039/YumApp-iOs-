@@ -8,6 +8,8 @@
 import UIKit
 
 class SeasonCell: UICollectionViewCell {
+    
+    static let identifier = String(describing: SeasonCell.self)
 
     @IBOutlet weak var seasonLabel: UILabel!
     @IBOutlet weak var seasonImageView: UIImageView!
@@ -30,18 +32,6 @@ class SeasonCell: UICollectionViewCell {
             }
         }
         }
-//    static let identifier = String(describing: SeasonCell.self)
-//
-//
-//    func setup(season: ProduceSeason) {
-//        seasonLabel.text = season.name
-////        seasonImageView.UImage(named: "circle")
-////        setImage(with: season.image?)
-//    }
-//
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
         
     }
     

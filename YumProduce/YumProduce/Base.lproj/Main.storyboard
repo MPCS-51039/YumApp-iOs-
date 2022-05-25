@@ -19,58 +19,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vMO-V1-KHA" userLabel="Season Table View">
-                                <rect key="frame" x="20" y="125" width="374" height="645"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="produceCell" rowHeight="90" id="eQp-HI-lUm" customClass="ProduceCell" customModule="YumProduce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="374" height="90"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eQp-HI-lUm" id="LH2-16-kWt">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="90"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="23p-Cu-dwN">
-                                                    <rect key="frame" x="20" y="7.5" width="80" height="80"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l92-1X-S1q">
+                                <rect key="frame" x="0.0" y="149" width="414" height="641"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vMO-V1-KHA" userLabel="Season Table View">
+                                        <rect key="frame" x="20" y="20" width="374" height="601"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="produceCell" rowHeight="90" id="eQp-HI-lUm" customClass="ProduceCell" customModule="YumProduce" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44.5" width="374" height="90"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eQp-HI-lUm" id="LH2-16-kWt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.hexagongrid.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gus-G8-vq5">
-                                                            <rect key="frame" x="0.0" y="1" width="80" height="78"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="80" id="EfV-sw-bid"/>
-                                                                <constraint firstAttribute="width" constant="80" id="GQn-D7-Ehz"/>
-                                                            </constraints>
-                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23p-Cu-dwN">
+                                                            <rect key="frame" x="20" y="7.5" width="80" height="80"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.hexagongrid.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gus-G8-vq5">
+                                                                    <rect key="frame" x="0.0" y="1" width="80" height="78"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcM-k5-bnq" userLabel="produceName">
+                                                            <rect key="frame" x="108" y="15" width="61" height="60"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="24"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                        </label>
                                                     </subviews>
-                                                </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcM-k5-bnq" userLabel="produceName">
-                                                    <rect key="frame" x="108" y="15" width="246" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="24"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="produceImageView" destination="gus-G8-vq5" id="WKg-ac-6m9"/>
-                                            <outlet property="produceNameLabel" destination="wcM-k5-bnq" id="bxv-1c-bXG"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                                    <constraints>
+                                                        <constraint firstItem="23p-Cu-dwN" firstAttribute="top" secondItem="LH2-16-kWt" secondAttribute="topMargin" constant="-3.5" id="8NA-Sq-k2p"/>
+                                                        <constraint firstItem="wcM-k5-bnq" firstAttribute="leading" secondItem="23p-Cu-dwN" secondAttribute="trailing" constant="8" symbolic="YES" id="Q1h-mS-5Tu"/>
+                                                        <constraint firstItem="wcM-k5-bnq" firstAttribute="centerY" secondItem="LH2-16-kWt" secondAttribute="centerY" id="Y2V-bh-GrJ"/>
+                                                        <constraint firstItem="wcM-k5-bnq" firstAttribute="top" secondItem="LH2-16-kWt" secondAttribute="topMargin" constant="4" id="YNG-Ej-k2B"/>
+                                                        <constraint firstItem="wcM-k5-bnq" firstAttribute="leading" secondItem="LH2-16-kWt" secondAttribute="leading" constant="108" id="cJR-Dm-lqA"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wcM-k5-bnq" secondAttribute="trailing" constant="20" symbolic="YES" id="g2D-oD-c53"/>
+                                                        <constraint firstItem="23p-Cu-dwN" firstAttribute="leading" secondItem="LH2-16-kWt" secondAttribute="leadingMargin" id="pdX-Up-If6"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="23p-Cu-dwN" secondAttribute="bottom" constant="-8.5" id="r0t-26-ikX"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="produceImageView" destination="gus-G8-vq5" id="WKg-ac-6m9"/>
+                                                    <outlet property="produceNameLabel" destination="wcM-k5-bnq" id="bxv-1c-bXG"/>
+                                                    <segue destination="Aca-wA-nMa" kind="show" id="ndf-ey-RZ8"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vMO-V1-KHA" firstAttribute="centerY" secondItem="l92-1X-S1q" secondAttribute="centerY" id="24b-cc-quX"/>
+                                    <constraint firstAttribute="bottom" secondItem="vMO-V1-KHA" secondAttribute="bottom" constant="20" id="KMP-2L-OVz"/>
+                                    <constraint firstAttribute="trailing" secondItem="vMO-V1-KHA" secondAttribute="trailing" constant="20" id="R68-Xe-Pki"/>
+                                    <constraint firstItem="vMO-V1-KHA" firstAttribute="top" secondItem="SQa-dt-HIc" secondAttribute="top" constant="20" id="czw-jW-LXY"/>
+                                    <constraint firstItem="vMO-V1-KHA" firstAttribute="centerX" secondItem="l92-1X-S1q" secondAttribute="centerX" id="kN6-E0-xr6"/>
+                                    <constraint firstItem="vMO-V1-KHA" firstAttribute="leading" secondItem="SQa-dt-HIc" secondAttribute="leading" constant="20" id="uxU-Tt-iKc"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="yXr-e5-l8h"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="SQa-dt-HIc"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EjB-04-S30"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="l92-1X-S1q" secondAttribute="trailing" id="2m5-hL-vGR"/>
+                            <constraint firstItem="l92-1X-S1q" firstAttribute="top" secondItem="EjB-04-S30" secondAttribute="top" constant="9" id="Nfp-c7-Tfo"/>
+                            <constraint firstItem="l92-1X-S1q" firstAttribute="leading" secondItem="v9n-Lz-Hja" secondAttribute="leading" id="aYH-aR-A1Z"/>
+                            <constraint firstItem="EjB-04-S30" firstAttribute="bottom" secondItem="l92-1X-S1q" secondAttribute="bottom" constant="72" id="wNA-Lj-hSk"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ghh-5A-9Fh" userLabel="Good Produce"/>
                     <connections>
                         <outlet property="seasonalTableView" destination="vMO-V1-KHA" id="uob-uE-goA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eqd-l3-bj6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="-703"/>
+            <point key="canvasLocation" x="1963.7681159420292" y="-264.50892857142856"/>
         </scene>
         <!--Good Produce-->
         <scene sceneID="tne-QT-ifu">
@@ -154,6 +181,7 @@
                                                                 <connections>
                                                                     <outlet property="seasonImageView" destination="tnj-P5-mb4" id="22f-t3-lvB"/>
                                                                     <outlet property="seasonLabel" destination="c3j-q4-hL6" id="NVq-7A-x0F"/>
+                                                                    <segue destination="6Ys-xN-tOe" kind="show" identifier="SeasonalSegue" id="QAG-3W-dmf"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
@@ -306,7 +334,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Oh-za-Vt3" userLabel="Kitchen Table View">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="684"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="produceCell" rowHeight="90" id="FS3-Bg-qpg" customClass="ProduceCell" customModule="YumProduce" customModuleProvider="target">
@@ -353,7 +381,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="3Oh-za-Vt3" secondAttribute="trailing" id="2pw-co-lPn"/>
-                                            <constraint firstItem="HM4-Vv-U0S" firstAttribute="bottom" secondItem="3Oh-za-Vt3" secondAttribute="bottom" constant="38" id="30Z-tx-pUz"/>
+                                            <constraint firstItem="HM4-Vv-U0S" firstAttribute="bottom" secondItem="3Oh-za-Vt3" secondAttribute="bottom" id="30Z-tx-pUz"/>
                                             <constraint firstItem="3Oh-za-Vt3" firstAttribute="centerX" secondItem="uEx-jR-qzn" secondAttribute="centerX" id="GH9-Qt-vKn"/>
                                             <constraint firstItem="3Oh-za-Vt3" firstAttribute="width" secondItem="uEx-jR-qzn" secondAttribute="width" id="PbF-cw-5Jh"/>
                                             <constraint firstItem="3Oh-za-Vt3" firstAttribute="leading" secondItem="uEx-jR-qzn" secondAttribute="leading" id="dqA-YN-6f6"/>
@@ -486,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ype-XS-CJU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769.5652173913045" y="83.705357142857139"/>
+            <point key="canvasLocation" x="1964" y="420"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Sx-7l-XFY">
@@ -514,6 +542,9 @@
             <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ndf-ey-RZ8"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemGreenColor"/>
     <resources>
         <image name="circle.hexagongrid.fill" catalog="system" width="128" height="112"/>

@@ -8,6 +8,8 @@
 import UIKit
 
 class ProduceCell: UITableViewCell {
+    
+    static let identifier = "ProduceCell"
 
     @IBOutlet weak var produceNameLabel: UILabel!
     @IBOutlet weak var produceImageView: UIImageView!

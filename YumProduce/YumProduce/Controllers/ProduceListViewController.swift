@@ -26,7 +26,7 @@ class ProduceListViewController: UIViewController {
         self.seasons = [
             Season(name:"All Year",imageUrl: "https://thumbs.dreamstime.com/z/graphic-black-flat-vector-all-four-seasons-icon-isolated-winter-spring-summer-autumn-year-round-sign-snow-rain-sun-symbols-eps-137606744.jpg" ),
             Season(name:"Spring", imageUrl: "https://www.creativefabrica.com/wp-content/uploads/2021/08/13/Flower-icon-four-pink-flower-design-art-Graphics-15836070-1.jpg"),
-            Season(name: "Summer", imageUrl: "https://www.pngkit.com/png/detail/354-3545067_summer-camp-transparent-summer-icon.png"),
+            Season(name: "Summer", imageUrl: "https://icon-library.com/images/summer-icon/summer-icon-9.jpg"),
             Season(name:"Fall", imageUrl: "https://www.downloadclipart.net/large/autumn-fall-leaves-clip-art-png.png"),
             Season(name:"Winter", imageUrl: "https://cdn1.iconfinder.com/data/icons/winter-123/512/snowflake-snow-winter-cold-nature-1024.png") ]
         
@@ -51,7 +51,6 @@ class ProduceListViewController: UIViewController {
             ProduceData.instance.shouldReloadIndex = false
         }
     }
-    
         
     @objc func loadTable() {
         
@@ -61,10 +60,9 @@ class ProduceListViewController: UIViewController {
             guard let produces = produces, error == nil else {
                 let alert = UIAlertController(title: "Error", message: "Unable to fetch instances from API. Try again later", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_ in }))
-                
             self.present(alert, animated: true, completion: nil)
-                
-            return
+            
+                return
         }
         
         switch (produces.count) {
@@ -90,29 +88,25 @@ class ProduceListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  downcast from UIVIew contorler to detail view conteoller, optional return so, if destination is nil
-        guard
-            let destination = segue.destination as? DetailViewController,
-            let selectedIndexPath = self.tableView.indexPathForSelectedRow,
-            let confirmedCell = self.tableView.cellForRow(at: selectedIndexPath) as? ProduceCell
-            else { return }
-            
-        let confirmedProduce = confirmedCell.produce
-        destination.produce = confirmedProduce
+        if (segue.identifier != "SeasonalSegue") {
+            guard
+                let destination = segue.destination as? DetailViewController,
+                let selectedIndexPath = self.tableView.indexPathForSelectedRow,
+                let confirmedCell = self.tableView.cellForRow(at: selectedIndexPath) as? ProduceCell
+                else { return }
+            let confirmedProduce = confirmedCell.produce
+            destination.produce = confirmedProduce
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        //  downcast from UIVIew contorler to detail view conteoller, optional return so, if destination is nil
-//        guard
-//            let destination = segue.destination as? SeasonListViewController,
-//            let selectedIndexPath = self.seasonCollectionView.indexPathForSelectedRow,
-//            let confirmedCell = self.seasonCollectionView.cellForRow(at: selectedIndexPath) as? SeasonCell
-//            else { return }
-//
-//        let confirmedSeason = confirmedCell.produce
-//        destination.season = confirmedSeason
-//    }
+        else {
+            if let cell = sender as? SeasonCell,
+               let indexPath = self.seasonCollectionView.indexPath(for: cell) {
+                
+                let destination = segue.destination as? SeasonListViewController
+                destination!.season = seasons[indexPath.row]
+            }
+    }
 }
-
+}
 
 
 extension ProduceListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -172,10 +166,16 @@ extension ProduceListViewController: UICollectionViewDataSource, UICollectionVie
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
   
         let cell = self.seasonCollectionView.dequeueReusableCell(withReuseIdentifier: "seasonCell", for: indexPath) as! SeasonCell
-        let selectedSeason = self.seasons[indexPath.item]
+        let selectedSeason = self.seasons[indexPath.row]
         cell.season = selectedSeason
-        return cell          
+        return cell
        }
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        
+//        self.performSegue(withIdentifier: "SeasonalSegue", sender: indexPath)
+//    }
+    
 }
 
 
