@@ -16,17 +16,12 @@ class DetailViewController: UIViewController {
    
     @IBOutlet weak var produceSeasonLabel: UILabel!
     @IBOutlet weak var produceStorageDescription: UILabel!
-    @IBOutlet weak var produceStatusLabel: UILabel!
-
-    @IBOutlet var starButtons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.produceName.text = produce?.name
         self.produceStorageDescription.text = produce?.description
         self.produceSeasonLabel.text = produce?.season
-        self.produceStatusLabel.text = produce?.status
-//        self.ratingDetailLabel.text = produce?.rating
         
         
         DispatchQueue.global(qos: .userInitiated).async {
@@ -49,19 +44,7 @@ class DetailViewController: UIViewController {
     */
 
         }
-}
-    
-    @IBAction func buttonTapped(_ sender: UIButton) {
-            print("Rated \(sender.tag) stars.")
-        
-        for button in self.starButtons {
-            print(button.tag)
-            if button.tag <= sender.tag {
-                button.setBackgroundImage(UIImage.init(named: "star.fill"), for: .normal)
-            } else {
-                button.setBackgroundImage(UIImage.init(named: "star"), for: .normal)
-        }
     }
-        produce?.rating = sender.tag
+    
 }
-}
+

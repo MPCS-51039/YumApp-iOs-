@@ -17,11 +17,9 @@ class Produce: CustomDebugStringConvertible, Codable{
     var description: String
     var imageUrl: String
     var season: String
-    
-    var rating: Int = 0
-    var confirmedEaten: Bool = false
-    var status: String = "Never Eaten"
-    
+
+    var inKitchen: Bool = false
+
 
     private enum CodingKeys: String, CodingKey {
         case name, description, imageUrl, season

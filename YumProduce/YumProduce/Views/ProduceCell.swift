@@ -11,14 +11,17 @@ class ProduceCell: UITableViewCell {
 
     @IBOutlet weak var produceNameLabel: UILabel!
     @IBOutlet weak var produceImageView: UIImageView!
-    @IBOutlet weak var ratingImageView: UIImageView!
     
     var produce: Produce? {
         didSet {
 
             self.produceNameLabel.text = produce?.name
-            self.ratingImageView.image = image(forRating: produce!.rating )
-//            self.accessoryType = produce!.confirmedEaten ? .checkmark : .none
+            
+            let kitchen = UIImageView(frame: CGRect(x: 25, y: 65, width: 35, height: 35))
+            kitchen.image = UIImage(systemName: "fork.knife.circle")
+            kitchen.tintColor = .systemGreen
+            
+            self.accessoryView = produce!.inKitchen ? kitchen : .none
             
             DispatchQueue.global(qos: .userInitiated).async {
                 let produceImageData = NSData(contentsOf: URL(string: self.produce!.imageUrl)!)
@@ -35,10 +38,7 @@ class ProduceCell: UITableViewCell {
         }
     }
 }
-    private func image(forRating rating: Int) -> UIImage? {
-        let imageName = "\(rating)StarsSmall"
-        return UIImage(named: imageName)
-    }
+
         
     override func awakeFromNib() {
         super.awakeFromNib()

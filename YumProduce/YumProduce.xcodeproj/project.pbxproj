@@ -24,8 +24,10 @@
 		B0319DB62803D549002C7C58 /* ProduceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319DB52803D549002C7C58 /* ProduceCell.swift */; };
 		B0319DB82803D73E002C7C58 /* Produce.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319DB72803D73E002C7C58 /* Produce.swift */; };
 		B0319DBA2803D873002C7C58 /* ProduceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0319DB92803D873002C7C58 /* ProduceService.swift */; };
+		B0E340FA283D6BC300A5F5FE /* MyKitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E340F9283D6BC300A5F5FE /* MyKitchenViewController.swift */; };
+		B0E340FE283DA75500A5F5FE /* ProduceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E340FD283DA75500A5F5FE /* ProduceData.swift */; };
 		B0FF6CC3282A08D4005C5775 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FF6CC2282A08D4005C5775 /* RatingView.swift */; };
-		B0FF6CCD282AD7EE005C5775 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FF6CCC282AD7EE005C5775 /* Category.swift */; };
+		B0FF6CCD282AD7EE005C5775 /* ProduceSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FF6CCC282AD7EE005C5775 /* ProduceSeason.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +69,10 @@
 		B0319DB52803D549002C7C58 /* ProduceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduceCell.swift; sourceTree = "<group>"; };
 		B0319DB72803D73E002C7C58 /* Produce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Produce.swift; sourceTree = "<group>"; };
 		B0319DB92803D873002C7C58 /* ProduceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduceService.swift; sourceTree = "<group>"; };
+		B0E340F9283D6BC300A5F5FE /* MyKitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyKitchenViewController.swift; sourceTree = "<group>"; };
+		B0E340FD283DA75500A5F5FE /* ProduceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduceData.swift; sourceTree = "<group>"; };
 		B0FF6CC2282A08D4005C5775 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
-		B0FF6CCC282AD7EE005C5775 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = YumProduce/Category.swift; sourceTree = SOURCE_ROOT; };
+		B0FF6CCC282AD7EE005C5775 /* ProduceSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProduceSeason.swift; path = YumProduce/ProduceSeason.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				B0319D822803C406002C7C58 /* ProduceListViewController.swift */,
+				B0E340F9283D6BC300A5F5FE /* MyKitchenViewController.swift */,
 				B01083C0280E316700F3E272 /* DetailViewController.swift */,
 				B0FF6CC2282A08D4005C5775 /* RatingView.swift */,
 			);
@@ -175,8 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				B0319DB92803D873002C7C58 /* ProduceService.swift */,
+				B0E340FD283DA75500A5F5FE /* ProduceData.swift */,
 				B0319DB72803D73E002C7C58 /* Produce.swift */,
-				B0FF6CCC282AD7EE005C5775 /* Category.swift */,
+				B0FF6CCC282AD7EE005C5775 /* ProduceSeason.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -313,13 +319,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0319DB62803D549002C7C58 /* ProduceCell.swift in Sources */,
-				B0FF6CCD282AD7EE005C5775 /* Category.swift in Sources */,
+				B0E340FE283DA75500A5F5FE /* ProduceData.swift in Sources */,
+				B0FF6CCD282AD7EE005C5775 /* ProduceSeason.swift in Sources */,
 				B0319D892803C406002C7C58 /* YumProduce.xcdatamodeld in Sources */,
 				B0319DB82803D73E002C7C58 /* Produce.swift in Sources */,
 				B0FF6CC3282A08D4005C5775 /* RatingView.swift in Sources */,
 				B0319DBA2803D873002C7C58 /* ProduceService.swift in Sources */,
 				B0319D832803C406002C7C58 /* ProduceListViewController.swift in Sources */,
 				B0319D7F2803C406002C7C58 /* AppDelegate.swift in Sources */,
+				B0E340FA283D6BC300A5F5FE /* MyKitchenViewController.swift in Sources */,
 				B0319D812803C406002C7C58 /* SceneDelegate.swift in Sources */,
 				B01083C1280E316700F3E272 /* DetailViewController.swift in Sources */,
 			);
