@@ -6,14 +6,14 @@
 //
 
 import Foundation
-import SwiftUI
 
-struct ProduceSeason: Decodable {
-    let id, name, image: String?
+
+class Season {
+    var name: String
+    var imageUrl: String
     
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name = "title"
-        case image
+    init(name: String, imageUrl: String) {
+        self.name = name
+        self.imageUrl = imageUrl
     }
 }

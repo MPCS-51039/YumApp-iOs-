@@ -9,49 +9,34 @@ import UIKit
 
 class ProduceListViewController: UIViewController {
     
-    @IBOutlet weak var spinnerView: UIView! {
-           didSet {
-               spinnerView.layer.cornerRadius = 6
-           }
-       }
-    
-    
-    @IBOutlet weak var spinnerIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var seasonCollectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
-    var seasons: [ProduceSeason] = []
-    var market: [Produce] = [] {
-        didSet {
-            self.tableView.reloadData()
-        }}
+    var seasons: [Season]!
+    var market: [Produce] = []
+//    {
+//        didSet {
+//            self.tableView.reloadData()
+//        }}
     var produceService: ProduceService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        func showSpinner() {
-            spinnerIndicator.startAnimating()
-            spinnerView.isHidden = false
-        }
-
-        func hideSpinner() {
-            spinnerIndicator.stopAnimating()
-            spinnerView.isHidden = true
-        }
-//
-//        // Do any additional setup after loading the view.
-//
-//        showSpinner()
+        self.seasons = [
+            Season(name:"All Year",imageUrl: "https://thumbs.dreamstime.com/z/graphic-black-flat-vector-all-four-seasons-icon-isolated-winter-spring-summer-autumn-year-round-sign-snow-rain-sun-symbols-eps-137606744.jpg" ),
+            Season(name:"Spring", imageUrl: "https://www.creativefabrica.com/wp-content/uploads/2021/08/13/Flower-icon-four-pink-flower-design-art-Graphics-15836070-1.jpg"),
+            Season(name: "Summer", imageUrl: "https://www.pngkit.com/png/detail/354-3545067_summer-camp-transparent-summer-icon.png"),
+            Season(name:"Fall", imageUrl: "https://www.downloadclipart.net/large/autumn-fall-leaves-clip-art-png.png"),
+            Season(name:"Winter", imageUrl: "https://cdn1.iconfinder.com/data/icons/winter-123/512/snowflake-snow-winter-cold-nature-1024.png") ]
+        
+        self.seasonCollectionView.dataSource = self
+        self.seasonCollectionView.delegate = self
         
         self.produceService = ProduceService()
-        
+
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            hideSpinner()
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) { //here we can inject part of our code, trade out our mock for real service
@@ -61,12 +46,13 @@ class ProduceListViewController: UIViewController {
         }
     
         if ProduceData.instance.shouldReloadIndex {
+            self.seasonCollectionView.reloadData()
             self.tableView.reloadData()
             ProduceData.instance.shouldReloadIndex = false
         }
     }
     
-    
+        
     @objc func loadTable() {
         
         guard let confirmedService = self.produceService else { return }
@@ -102,7 +88,6 @@ class ProduceListViewController: UIViewController {
     })
 }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  downcast from UIVIew contorler to detail view conteoller, optional return so, if destination is nil
         guard
@@ -114,43 +99,36 @@ class ProduceListViewController: UIViewController {
         let confirmedProduce = confirmedCell.produce
         destination.produce = confirmedProduce
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        //  downcast from UIVIew contorler to detail view conteoller, optional return so, if destination is nil
+//        guard
+//            let destination = segue.destination as? SeasonListViewController,
+//            let selectedIndexPath = self.seasonCollectionView.indexPathForSelectedRow,
+//            let confirmedCell = self.seasonCollectionView.cellForRow(at: selectedIndexPath) as? SeasonCell
+//            else { return }
+//
+//        let confirmedSeason = confirmedCell.produce
+//        destination.season = confirmedSeason
+//    }
 }
 
 
-extension ProduceListViewController: UITableViewDataSource {
-    //    MARK: DataSource
+
+extension ProduceListViewController: UITableViewDataSource, UITableViewDelegate {
+    //    MARK: TableView
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return self.market.count
     }
-
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "produceCell") as! ProduceCell
-
-        let currentProduce = self.market[indexPath.row]
-        
-        
-        cell.produce = currentProduce
-        
-        return cell
-    }
-}
-
-
-extension ProduceListViewController: UITableViewDelegate {
-    //    MARK: Delegate
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if
-//            let cell = self.tableView.cellForRow(at: indexPath) as? ProduceCell,
-//            let confirmedProduce = cell.produce
-//        {
-//            confirmedProduce.confirmedEaten = true
-//          cell.accessoryType = confirmedProduce.confirmedEaten ? .checkmark : .none
-//        }
-        
-//    }
+           let cell = self.tableView.dequeueReusableCell(withIdentifier: "produceCell") as! ProduceCell
+           let currentProduce = self.market[indexPath.row]
+           cell.produce = currentProduce
+           
+           return cell
+       }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if
@@ -181,6 +159,23 @@ extension ProduceListViewController: UITableViewDelegate {
         }
         return nil
     }
+        
+}
+
+//    MARK: Collection View
+extension ProduceListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.seasons.count
+        }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+  
+        let cell = self.seasonCollectionView.dequeueReusableCell(withReuseIdentifier: "seasonCell", for: indexPath) as! SeasonCell
+        let selectedSeason = self.seasons[indexPath.item]
+        cell.season = selectedSeason
+        return cell          
+       }
 }
 
 

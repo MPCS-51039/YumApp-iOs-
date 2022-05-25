@@ -9,7 +9,6 @@ import UIKit
 
 class KitchenListViewController: UIViewController {
 
-
     @IBOutlet weak var kitchenTableView: UITableView!
     
     var kitchen: [Produce] = []

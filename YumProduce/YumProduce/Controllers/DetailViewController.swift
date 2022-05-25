@@ -29,7 +29,6 @@ class DetailViewController: UIViewController {
             DispatchQueue.main.async {
                 self.produceBannerImage.image = UIImage(data: produceImageData! as Data)
             }
-            //        self.produceBannerImage.image = produce?.imageUrl
 
                     // Do any additional setup after loading the view.
 
