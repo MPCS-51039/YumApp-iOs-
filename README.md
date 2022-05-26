@@ -59,6 +59,7 @@ Proposed functionality:
 - Rating the item stopped making sense, food is not something people that forget how they feel about, so produce raating was aattempted and deprecated (attempt in branch _ios-custom-feature_ of this repo)
 
 # Next Steps
+- Decide on title in homepage: YumProduce or GoodProduce (initially Yum and Good had different characteristics that were not built out).
 - Improvements for landscape orientation and other sized devices.
 - Review of Home Page visual design for seasonal cells to not require swipe and smaller row cells to fit more produce in.
 - Implement search bar (makes more sense instead of scrolling through list)
