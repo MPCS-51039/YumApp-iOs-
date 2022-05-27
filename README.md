@@ -36,7 +36,7 @@ Trailing Swipe to remove item from My Kitchen: Yum!
 <img width="211" alt="mykityum" src="https://user-images.githubusercontent.com/83419562/170388918-43a6909c-e92f-48ca-9c34-13e4c43185e2.png">
 
 # How to Run the App
-1. Clone this repo 
+1. Clone this repo https://github.com/MPCS-51039/ios-project-mariswb.git
 2. Open the YumProduce project in Xcode.
 3. Run the app on the simulator.
 
