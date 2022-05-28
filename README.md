@@ -67,5 +67,5 @@ Proposed functionality:
 - Connect to a real API to source a full list of produce items. Maybe include other perishables such as grains, legumes, nuts, herbs and animal products. 
 
 
-#### Please leave a comment with your thoughts! Very appreciated!
+#### Please leave a comment with your thoughts! They would be much appreciated!
 
