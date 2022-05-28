@@ -56,7 +56,7 @@ Proposed functionality:
 # Result
 - The app can perform functionalities 1, 2, and 3.
 - The app does not track user history and so, does not track item frequency and timeframe.
-- Rating the item stopped making sense, food is not something people that forget how they feel about, so produce raating was aattempted and deprecated (attempt in branch _ios-custom-feature_ of this repo)
+- Rating the item stopped making sense. Food is not something people that forget how they feel about, so produce rating was attempted and deprecated (attempt in branch _ios-custom-feature_ of this repo)
 
 # Next Steps
 - Decide on title in homepage: YumProduce or GoodProduce (initially Yum and Good had different characteristics that were not built out).
