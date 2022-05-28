@@ -8,7 +8,7 @@ The app provides users with a simple interfase to create a list of produuce item
 Initial Home Screen with:
 List of All Produce and seasonal selection option
 Access to "My Kitchen" (cutlery icon)
-* <img width="212" alt="home" src="https://user-images.githubusercontent.com/83419562/170388668-c3237d05-2955-4071-95b0-3b6d92ff4930.png">
+<img width="212" alt="home" src="https://user-images.githubusercontent.com/83419562/170388668-c3237d05-2955-4071-95b0-3b6d92ff4930.png">
 
 
 View of Year-Round Selection:
